@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 
 export default class Accordian extends Component {
     static defaultProps = {
-        sections: {
-            title: '',
-            content: ''
-        }
+        sections: []
     }
 
     state = {
