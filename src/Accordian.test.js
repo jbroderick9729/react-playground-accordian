@@ -36,5 +36,17 @@ describe('Accordian component', () => {
         const wrapper = shallow(<Accordian sections={sections} />);
         expect(toJson(wrapper)).toMatchSnapshot()
     });
+    
+    it('component opens a clicked section', () => {
+      const wrapper = shallow(<Accordian sections={sections} />);
+      wrapper.find('button').at(1).simulate('click')
+      expect(toJson(wrapper)).toMatchSnapshot()
+    });
 
+    it('only opens the last section when multiple sections have been clicked', () => {
+      const wrapper = shallow(<Accordian sections={sections} />);
+      wrapper.find('button').at(1).simulate('click')
+      wrapper.find('button').at(2).simulate('click')
+      expect(toJson(wrapper)).toMatchSnapshot()
+  });
 })
